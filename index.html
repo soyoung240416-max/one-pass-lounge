@@ -349,16 +349,21 @@
         font-size: 21px;
       }
 
-      .program-item {
-        grid-template-columns: 40px 1fr;
-      }
+     .program-item {
+  display: block;
+}
 
-      .program-item .btn {
-        grid-column: 1 / -1;
-        width: 100%;
-        margin-top: 4px;
-      }
-    }
+.item-title {
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.btn.green {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  text-align: center;
+}
   </style>
 </head>
 <body>
@@ -384,19 +389,21 @@
           <div class="program-item">
             <div class="item-icon">📋</div>
             <div class="item-body">
-              <h3 class="item-title">프레디저 진로설계</h3>
+              <h3 class="item-title">프레디저<br>진로설계</h3>
               <p class="item-desc">프레디저 검사를 활용한 진로설계 프로그램</p>
+              
               <div class="item-meta">
                 <div>📅 일정: 2026. 4. 24. (금) 16:00~18:00</div>
                 <div>📍 장소: 서울고용센터 1층 청프로그램실</div>
               </div>
-            </div>
-            <a class="btn green" 
+              
+           <a class="btn green" 
               target="_blank" 
               rel="noopener noreferrer" 
               href="https://form.naver.com/response/HET_44ampSquxlDaAFwmnA">
-              신청 바로가기</a>
-          </div>
+              신청 바로가기
+           </a>
+         </div>
 
           <div class="program-item">
             <div class="item-icon">📊</div>
