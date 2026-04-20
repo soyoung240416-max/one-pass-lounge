@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>삼육대 졸특 ONE_PASS 라운지</title>
+  <style>
+    :root {
+      --bg: #eef7fb;
+      --surface: #ffffff;
+      --primary: #1185d1;
+      --primary-deep: #0b5c96;
+      --secondary: #ff5aa5;
+      --mint: #25b57c;
+      --text: #17324d;
+      --muted: #6f8196;
+      --line: #d8e8f2;
+      --shadow: 0 10px 24px rgba(17, 133, 209, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Malgun Gothic", "맑은 고딕", Arial, sans-serif;
+      background: linear-gradient(to bottom, #f7fbfe 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .page {
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: transparent;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #0f74b8 0%, #1797e2 100%);
+      color: white;
+      padding: 18px 18px 34px;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 36px;
+      border-bottom-right-radius: 36px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -5%;
+      right: -5%;
+      bottom: -28px;
+      height: 70px;
+      background: var(--bg);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
+
+    .hero-banner {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 14px 0 0;
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.94);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section {
+      padding: 18px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 14px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--primary-deep);
+    }
+
+    .section-title .bar {
+      width: 8px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #2bb7ff, #0d7fc7);
+      box-shadow: 0 3px 10px rgba(17, 133, 209, 0.2);
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(215,233,243,0.95);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: 0 8px 18px rgba(26, 73, 115, 0.06);
+    }
+
+    .card + .card {
+      margin-top: 14px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      line-height: 1.28;
+      letter-spacing: -0.04em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .meta {
+      margin-top: 14px;
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: #5e6d82;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(180deg, #1294e2 0%, #0a7cc4 100%);
+      color: white;
+      box-shadow: 0 12px 20px rgba(17, 133, 209, 0.22);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--secondary);
+      border: 2px solid #ff9ac8;
+      box-shadow: 0 10px 16px rgba(255, 90, 165, 0.12);
+    }
+
+    .btn-mint {
+      background: linear-gradient(180deg, #25c989 0%, #119a66 100%);
+      color: white;
+      box-shadow: 0 12px 20px rgba(37, 181, 124, 0.22);
+    }
+
+    .btn-disabled {
+      background: #eef3f6;
+      color: #95a4b3;
+      border: 1px solid #dde6ed;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .mini-note {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #8a99a8;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .banner-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .banner-card img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .program-box {
+      min-height: 168px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 18px 14px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      box-shadow: 0 10px 18px rgba(17, 133, 209, 0.08);
+    }
+
+    .program-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      margin-bottom: 12px;
+      background: #eff7ff;
+    }
+
+    .program-box h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+    }
+
+    .program-box p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-line {
+      background: white;
+      border: 1.5px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.45;
+      word-break: break-all;
+    }
+
+    .footer-space {
+      height: 34px;
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 { font-size: 30px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero-actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <img class="hero-banner" src="스크린샷 2026-04-13 143133(1).png" alt="졸업(예정)자 취업연계 프로그램 및 일경험 안내 배너" />
+      <div class="hero-badge">삼육대 졸특 · SYU ONE_PASS</div>
+      <h1>[삼육대 졸특]<br />ONE_PASS 라운지</h1>
+      <p>
+        2026년 삼육대 졸업(예정)자와 지역 청년 친구들을 위한<br />
+        취업·진로·상담·프로그램 정보를 한눈에 볼 수 있는 통합 라운지입니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#lineup">프로그램 보러가기</a>
+        <a class="btn btn-secondary" href="#consulting">상담 예약 바로가기</a>
+      </div>
+    </header>
+
+    <section id="lineup" class="section">
+      <div class="section-title"><span class="bar"></span><span>[서울고용센터] 프로그램 라인업</span></div>
+      <div class="panel">
+        <div class="card">
+          <div class="eyebrow">3-in-1 협력모델 · 2026 커리어스타트업</div>
+          <h3>프레디저 검사를 활용한<br />진로설계 프로그램 2회차</h3>
+          <p>진로 탐색과 자기이해를 바탕으로 나에게 맞는 방향을 설계하는 프로그램</p>
+          <div class="meta">
+            <div>📅 일정: 2026. 4. 24. (금) 16:00~18:00</div>
+            <div>📍 장소: 서울고용센터 1층 청년프로그램실</div>
+          </div>
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://form.naver.com/response/HET_44ampSquxlDaAFwmnA">신청 바로가기</a>
+        </div>
+
+        <div class="card">
+          <div class="eyebrow">3-in-1 협력모델 · AI 디지털 역량강화</div>
+          <h3>맞춤형 프로그램<br />경영정보시각화</h3>
+          <p>실무에 바로 연결되는 AI·디지털 기반 역량을 키우는 맞춤형 직무역량 프로그램</p>
+          <div class="meta">
+            <div>📅 일정: 2026. 4. 24. (금) 14:00~18:00</div>
+            <div>📍 장소: 서울고용센터 1층 다목적홀</div>
+          </div>
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://form.naver.com/response/fZXN8phfitk-O2DRr9eMkg">신청 바로가기</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="bar"></span><span>[메인비즈협회] 프로그램 라인업</span></div>
+      <div class="panel">
+        <div class="card">
+          <div class="eyebrow">기업 연계 실무 프로젝트</div>
+          <h3>빅트론텍 연계<br />실전 프로젝트 참여자 모집</h3>
+          <p>
+            • 갤럭시 워치 퍼팅 도우미 앱 개발<br />
+            • AIClear PPT 앱 제작 (앱 + 관리서버 + 음성/세션 제어 구조)
+          </p>
+          <div class="meta">
+            <div>📅 신청기한: 2026. 04. 29. (수) ~ 2026. 05. 03. (일)</div>
+            <div>🏢 참여 기업: 빅트론텍</div>
+          </div>
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://sugary-lathe-e35.notion.site/342cad4e5bb7805c8ab6eecbd20fde1a">신청 바로가기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="consulting" class="section">
+      <div class="section-title"><span class="bar"></span><span>상담 & 컨설팅 예약</span></div>
+      <div class="panel">
+        <div class="card banner-card">
+          <img src="스크린샷 2026-04-13 143133(1).png" alt="상담 배너 이미지" />
+        </div>
+        <div class="card" style="margin-top:14px;">
+          <div class="eyebrow">삼육대 졸특 상담 연결</div>
+          <h3>상담 신청 & 예약</h3>
+          <p>상담 신청 폼과 SU+ 홈페이지를 통해 원하는 방식으로 바로 연결할 수 있어요.</p>
+          <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://forms.gle/fCz3WaVfGpvRxiGe6">상담 신청하기</a>
+          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://su-plus.syu.ac.kr/">홈페이지 바로가기</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="bar"></span><span>2026 삼육대 졸특 대표 프로그램</span></div>
+      <div class="grid-2">
+        <div class="program-box">
+          <div class="program-icon">💼</div>
+          <h4>추천채용 / 일반채용</h4>
+          <p>채용 연계 기회를 통해 실제 취업까지 이어지는 프로그램</p>
+        </div>
+        <div class="program-box">
+          <div class="program-icon">🚀</div>
+          <h4>SYU 역량강화 프로그램</h4>
+          <p>취업 경쟁력을 높이는 단계별 역량 개발 프로그램</p>
+        </div>
+        <div class="program-box">
+          <div class="program-icon">🧩</div>
+          <h4>깔맞춤 나RG 컨설팅</h4>
+          <p>성장과정, 장단점, 에피소드, 가치관 정리까지 맞춤형 컨설팅</p>
+        </div>
+        <div class="program-box">
+          <div class="program-icon">📝</div>
+          <h4>직무별 지원서 작성법</h4>
+          <p>직무에 맞는 자기소개서와 지원서 작성 전략 안내</p>
+        </div>
+        <div class="program-box">
+          <div class="program-icon">🎤</div>
+          <h4>깔맞춤 면접특강</h4>
+          <p>실전 면접에서 바로 써먹는 답변 구성과 표현법</p>
+        </div>
+        <div class="program-box">
+          <div class="program-icon">🤝</div>
+          <h4>커리어매칭 LIVE</h4>
+          <p>현장면접과 기업 매칭으로 이어지는 실전 취업 프로그램</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span class="bar"></span><span>문의 / 채널 안내</span></div>
+      <div class="panel">
+        <div class="contact-box">
+          <div class="contact-line">
+            <div class="contact-label">카카오톡 채널</div>
+            <div class="contact-value">삼육대학교 대학일자리본부</div>
+            <a class="btn btn-mint" target="_blank" rel="noopener noreferrer" href="http://pf.kakao.com/_UjgbG">카카오톡 채널 바로가기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-space"></div>
+  </div>
+</body>
+</html>
