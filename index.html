@@ -65,7 +65,7 @@
 
     .section-banner {
       margin: 0;
-     display: none;
+      display: none;
     }
 
     .section {
@@ -141,9 +141,9 @@
 
     .program-item {
       display: grid;
-      grid-template-columns: 44px 1fr auto;
-      gap: 10px;
-      align-items: center;
+      grid-template-columns: 44px 1fr;
+      gap: 12px;
+      align-items: start;
       border-radius: 16px;
       padding: 12px;
       border: 1px solid #e5edf2;
@@ -167,6 +167,7 @@
       font-size: 20px;
       color: #fff;
       font-weight: 900;
+      flex-shrink: 0;
     }
 
     .theme-green .item-icon { background: var(--green); }
@@ -174,6 +175,8 @@
 
     .item-body {
       min-width: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     .item-title {
@@ -183,6 +186,13 @@
       letter-spacing: -0.04em;
       line-height: 1.2;
       color: #24384a;
+      word-break: keep-all;
+    }
+
+    .item-title.one-line {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .item-desc {
@@ -203,6 +213,10 @@
       line-height: 1.45;
     }
 
+    .item-action {
+      margin-top: 12px;
+    }
+
     .btn {
       min-width: 94px;
       height: 42px;
@@ -220,6 +234,7 @@
 
     .btn.green { background: var(--green); }
     .btn.purple { background: var(--purple); }
+    .btn.blue { background: var(--blue); }
 
     .project-card {
       margin: 0 10px 10px;
@@ -340,6 +355,48 @@
       word-break: keep-all;
     }
 
+    .consulting-wrap {
+      padding: 0 10px 10px;
+    }
+
+    .consulting-card {
+      border-radius: 16px;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid #dfe8ee;
+      box-shadow: 0 6px 14px rgba(31, 62, 88, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .consulting-desc {
+      margin: 0 0 4px;
+      font-size: 12px;
+      color: #6b7b89;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    .consulting-btn {
+      width: 100%;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .consulting-btn.green { background: var(--green); }
+    .consulting-btn.purple { background: var(--purple); }
+    .consulting-btn.blue { background: var(--blue); }
+
     .footer-space {
       height: 18px;
     }
@@ -349,74 +406,21 @@
         font-size: 21px;
       }
 
-  .program-item {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 16px;
-  align-items: start;
-}
+      .project-title {
+        font-size: 24px;
+      }
 
-.icon-wrap {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.item-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.btn.green {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: 16px;
-}
-
-.item-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.item-desc {
-  margin: 0 0 10px 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.item-meta {
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.item-meta p {
-  margin: 0 0 4px 0;
-}
-
-.btn.green {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: 14px;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: #1db954;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-}
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page">
-     <section class="hero">
-     <img src="banner.jpg" alt="삼육대학교 졸업예정자 및 지역 청년을 위한 취업 진로 통합 프로그램 라운지 배너" />
+    <section class="hero">
+      <img src="banner.jpg" alt="삼육대학교 졸업예정자 및 지역 청년을 위한 취업 진로 통합 프로그램 라운지 배너" />
     </section>
-
-    
 
     <!-- 서울고용센터 프로그램 -->
     <section class="section">
@@ -429,23 +433,26 @@
           </div>
         </div>
 
-       <div class="program-item">
-  <div class="icon-wrap">
-    <img src="아이콘경로" alt="">
-  </div>
-
-  <div class="item-body">
-    <h3 class="item-title">프로디저 진로설계</h3>
-    <p class="item-desc">프레디저 검사를 활용한 진로설계 프로그램</p>
-
-    <div class="item-meta">
-      <p>📅 일정: 2026. 4. 24. (금) 16:00~18:00</p>
-      <p>📍 장소: 서울고용센터 1층 청프로그램실</p>
-    </div>
-
-    <a href="#" class="btn green">신청 바로가기</a>
-  </div>
-</div>
+        <div class="program-list">
+          <div class="program-item">
+            <div class="item-icon">📋</div>
+            <div class="item-body">
+              <h3 class="item-title one-line">프레디저 진로설계</h3>
+              <p class="item-desc">프레디저 검사를 활용한 진로설계 프로그램</p>
+              <div class="item-meta">
+                <div>📅 일정: 2026. 4. 24. (금) 16:00~18:00</div>
+                <div>📍 장소: 서울고용센터 1층 청프로그램실</div>
+              </div>
+              <div class="item-action">
+                <a class="btn green"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://form.naver.com/response/fZXN8phfitk-O2DRr9eMkg">
+                  신청 바로가기
+                </a>
+              </div>
+            </div>
+          </div>
 
           <div class="program-item">
             <div class="item-icon">📊</div>
@@ -456,12 +463,15 @@
                 <div>📅 일정: 2026. 4. 24. (금) 14:00~18:00</div>
                 <div>📍 장소: 서울고용센터 1층 다목적홀</div>
               </div>
+              <div class="item-action">
+                <a class="btn green"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://form.naver.com/response/fZXN8phfitk-O2DRr9eMkg">
+                  신청 바로가기
+                </a>
+              </div>
             </div>
-            <a class="btn green" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              href="https://form.naver.com/response/fZXN8phfitk-O2DRr9eMkg">
-              신청 바로가기</a>
           </div>
         </div>
       </div>
@@ -488,11 +498,12 @@
 
           <div class="project-bottom">
             <div class="project-date">📅 신청기한: 2026. 04. 29. (수) ~ 2026. 05. 03. (일)</div>
-            <a class="btn purple" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a class="btn purple"
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://sugary-lathe-e35.notion.site/342cad4e5bb7805c8ab6eecbd20fde1a">
-              신청 바로가기</a>
+              신청 바로가기
+            </a>
           </div>
         </div>
       </div>
@@ -560,32 +571,47 @@
       </div>
     </section>
 
+    <!-- 상담 & 컨설팅 예약 -->
+    <section class="section">
+      <div class="block theme-blue">
+        <div class="block-header">
+          <div class="header-icon">📝</div>
+          <div class="header-text">
+            <h2 class="header-title">상담 &amp; 컨설팅 예약</h2>
+            <div class="header-sub">신청서 작성 및 예약 바로가기</div>
+          </div>
+        </div>
+
+        <div class="consulting-wrap">
+          <div class="consulting-card">
+            <p class="consulting-desc">원하는 신청서와 예약 페이지로 바로 이동할 수 있어요.</p>
+
+            <a href="https://buly.kr/YgHS2J"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="consulting-btn green">
+              졸업생 특화 신청서 작성 (필수작성)
+            </a>
+
+            <a href="https://forms.gle/fCz3WaVfGpvRxiGe6"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="consulting-btn purple">
+              ALL_PASS 신청서 (진로, 직무, 채용, 지원서, 면접 컨설팅 등)
+            </a>
+
+            <a href="https://su-plus.syu.ac.kr/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="consulting-btn blue">
+              SU-PLUS 예약 바로가기
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="footer-space"></div>
   </div>
 </body>
 </html>
-
-<section class="section-consulting">
-  <div class="section-header consulting-header">
-    <div class="section-badge">📝</div>
-    <div>
-      <h2>상담 &amp; 컨설팅 예약</h2>
-      <p>신청서 작성 및 예약 바로가기</p>
-    </div>
-  </div>
-
-  <div class="consulting-card">
-    <a href="https://buly.kr/YgHS2J" target="_blank" class="consulting-btn green">
-      졸업생 특화 신청서 작성 (필수)
-    </a>
-
-    <a href="https://forms.gle/fCz3WaVfGpvRxiGe6" target="_blank" class="consulting-btn purple">
-      ALL_PASS 신청서
-    </a>
-
-    <a href="https://su-plus.syu.ac.kr/" target="_blank" class="consulting-btn blue">
-      SU-PLUS 예약 바로가기
-    </a>
-  </div>
-</section>
-
