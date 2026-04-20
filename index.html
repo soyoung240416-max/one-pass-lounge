@@ -3,500 +3,521 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>삼육대 졸특 ONE_PASS 라운지</title>
+  <title>삼육대학교 취업 진로 통합 프로그램 라운지</title>
   <style>
-    :root {
-      --bg: #edf5f7;
-      --surface: #ffffff;
-      --text: #1f2d3d;
-      --muted: #6f7f90;
-      --line: #d9e6ec;
-      --orange: #ff6a1a;
-      --green: #13a66d;
-      --purple: #5a49e6;
-      --blue: #1f8ed8;
-      --pink: #ff4aa2;
-      --shadow: 0 12px 28px rgba(31, 62, 88, 0.08);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
+    * {
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Malgun Gothic", "맑은 고딕", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: "Malgun Gothic", "맑은 고딕", sans-serif;
+      background: #eef5f7;
+      color: #1f2d3d;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      max-width: 430px;
+    .wrap {
+      max-width: 980px;
       margin: 0 auto;
-      min-height: 100vh;
-      background: var(--bg);
-      padding-bottom: 30px;
+      padding: 20px 16px 40px;
     }
 
-    .hero img,
-    .section-banner img,
-    .consult-banner img {
-      width: 100%;
-      display: block;
+    /* 상단 안내 문구 */
+    .page-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #20324a;
+      line-height: 1.5;
     }
 
-    .hero img {
-      border-radius: 0 0 24px 24px;
-    }
-
-    .section {
-      padding: 16px;
-    }
-
-    .section-shell {
-      background: #f2f7f9;
-      border: 1.5px solid #ddeaf0;
-      border-radius: 32px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .section-banner {
-      margin-bottom: 16px;
+    /* 배너 */
+    .banner {
+      position: relative;
+      margin-bottom: 26px;
       border-radius: 22px;
       overflow: hidden;
-      background: #fff;
-      border: 1.5px solid #ddeaf0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      background: #ff6f1f;
     }
 
-    .section-title {
+    .banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-badge {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: #fff7f0;
+      color: #ff6a1a;
+      font-size: 28px;
+      font-weight: 900;
+      padding: 12px 30px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+    }
+
+    /* 공통 섹션 */
+    .section {
+      background: #f3f7f8;
+      border: 1px solid #d8e4e8;
+      border-radius: 24px;
+      padding: 22px 20px;
+      margin-bottom: 24px;
+    }
+
+    .section-header {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin: 2px 0 14px;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: #17324d;
-    }
-
-    .bar {
-      width: 7px;
-      height: 28px;
-      border-radius: 999px;
-      flex: 0 0 auto;
-    }
-
-    .green { background: linear-gradient(180deg, #2dd796, var(--green)); }
-    .purple { background: linear-gradient(180deg, #8375ff, var(--purple)); }
-    .blue { background: linear-gradient(180deg, #39a8f0, var(--blue)); }
-
-    .subhead {
-      margin: -4px 0 14px 17px;
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 16px;
       margin-bottom: 18px;
     }
 
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 4px;
-      width: 5px;
-      height: calc(100% - 8px);
+    .section-bar {
+      width: 8px;
+      height: 30px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #34d39a, var(--green));
-    }
-
-    .timeline-item h3 {
-      margin: 0 0 6px;
-      font-size: 22px;
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      color: #22364a;
-    }
-
-    .tiny {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .meta {
-      display: grid;
-      gap: 6px;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #596b7d;
-      font-weight: 700;
-    }
-
-    .cta {
-      margin-top: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 52px;
-      border-radius: 16px;
-      font-size: 17px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: #fff;
-      transition: transform .15s ease;
-    }
-
-    .cta:hover { transform: translateY(-1px); }
-    .cta.green { background: linear-gradient(180deg, #22c788, var(--green)); }
-    .cta.purple { background: linear-gradient(180deg, #7568ff, var(--purple)); }
-    .cta.blue { background: linear-gradient(180deg, #2da2ed, var(--blue)); }
-    .cta.outline {
-      background: #fff;
-      color: var(--purple);
-      border: 2px solid #c8c0ff;
-    }
-
-    .card {
-      background: #fff;
-      border: 1.5px solid var(--line);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 8px 16px rgba(31, 62, 88, 0.05);
-    }
-
-    .card + .card { margin-top: 14px; }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      color: #22364a;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
-      background: #eef7ff;
-      color: #365270;
-    }
-
-    .consult-banner {
-      margin-bottom: 14px;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1.5px solid #e3ddff;
-      background: #fff;
-    }
-
-    .consult-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .consult-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: #faf8ff;
-      border: 1.5px solid #e4dfff;
-    }
-
-    .consult-left {
-      display: grid;
-      gap: 4px;
-    }
-
-    .consult-left .label {
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      color: #24384a;
-    }
-
-    .consult-left .desc {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    .mini-btn {
-      min-width: 86px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: var(--purple);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 900;
-      text-align: center;
       flex-shrink: 0;
     }
 
-    .program-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.5px;
     }
 
-    .program-box {
-      min-height: 164px;
-      border-radius: 24px;
-      background: #fff;
-      border: 1.5px solid #d8e8f6;
-      box-shadow: 0 10px 18px rgba(31, 62, 88, 0.05);
-      padding: 18px 14px;
+    .section-sub {
+      margin: 8px 0 0 18px;
+      font-size: 15px;
+      color: #66758a;
+      font-weight: 600;
+    }
+
+    /* 색상 */
+    .green .section-bar { background: #19b56b; }
+    .green .section-title { color: #1f3552; }
+
+    .purple .section-bar { background: #8b5cf6; }
+    .purple .section-title { color: #1f3552; }
+
+    .blue .section-bar { background: #2f8dfb; }
+    .blue .section-title { color: #1f3552; }
+
+    /* 상담/컨설팅 */
+    .consult-box {
+      background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+      border-radius: 22px;
+      padding: 26px 22px;
+      color: white;
+      box-shadow: 0 10px 24px rgba(139, 92, 246, 0.18);
+    }
+
+    .consult-label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      margin-bottom: 12px;
+    }
+
+    .consult-title {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .consult-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 18px;
+    }
+
+    .consult-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: white;
+      color: #7c3aed;
+      font-weight: 800;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    /* 프로그램 카드 */
+    .program-list {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      gap: 18px;
+    }
+
+    .program-card {
+      background: white;
+      border: 1px solid #dbe6ea;
+      border-radius: 22px;
+      padding: 22px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-card.green-card {
+      border-left: 6px solid #19b56b;
+    }
+
+    .program-card.purple-card {
+      border-left: 6px solid #8b5cf6;
+    }
+
+    .program-top-tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .tag-green {
+      background: #e9fbf2;
+      color: #12985a;
+    }
+
+    .tag-purple {
+      background: #f3ecff;
+      color: #7b4ce2;
+    }
+
+    .program-body {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      gap: 18px;
+    }
+
+    .program-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .program-name {
+      font-size: 20px;
+      font-weight: 900;
+      color: #1d3557;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      letter-spacing: -0.3px;
+    }
+
+    .program-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #5b6c80;
+      margin-bottom: 12px;
+    }
+
+    .program-meta {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #425466;
+      font-weight: 600;
+    }
+
+    .apply-btn {
+      flex-shrink: 0;
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 28px;
+      border-radius: 16px;
+      min-width: 150px;
       text-align: center;
     }
 
-    .program-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
+    .btn-green {
+      background: #19b56b;
+    }
+
+    .btn-purple {
+      background: #8b5cf6;
+    }
+
+    /* 대표 프로그램 */
+    .card-grid {
       display: grid;
-      place-items: center;
-      margin-bottom: 12px;
-      font-size: 24px;
-      background: #eef7ff;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .program-box h4 {
-      margin: 0 0 8px;
-      font-size: 17px;
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      color: #203548;
+    .mini-card {
+      background: white;
+      border: 1px solid #d8e6f5;
+      border-radius: 22px;
+      padding: 24px 18px;
+      text-align: center;
+      min-height: 230px;
     }
 
-    .program-box p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--muted);
-      font-weight: 700;
+    .mini-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      border-radius: 18px;
+      background: #edf4fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
     }
 
-    .contact-wrap {
-      background: #fff;
-      border: 1.5px solid #dce7ee;
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: 0 8px 16px rgba(31, 62, 88, 0.05);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .contact-item {
-      border: 1.5px solid #e2ebf0;
-      border-radius: 16px;
-      padding: 14px 16px;
-      background: #fff;
-    }
-
-    .contact-item .label {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--muted);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-
-    .contact-item .value {
-      font-size: 16px;
+    .mini-title {
+      font-size: 18px;
       font-weight: 900;
-      line-height: 1.5;
-      color: #1f2d3d;
-      word-break: break-word;
+      color: #1d3557;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
     }
 
-    .footer-space { height: 20px; }
+    .mini-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #607086;
+      word-break: keep-all;
+    }
 
-    @media (max-width: 370px) {
-      .program-grid { grid-template-columns: 1fr; }
-      .timeline-item h3,
-      .card h3 { font-size: 20px; }
+    /* 모바일 */
+    @media (max-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .banner-badge {
+        font-size: 22px;
+        padding: 10px 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 16px 12px 32px;
+      }
+
+      .page-title {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 18px 16px;
+        border-radius: 20px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .section-sub {
+        margin-left: 0;
+        font-size: 14px;
+      }
+
+      .program-body {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .apply-btn {
+        width: 100%;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-badge {
+        font-size: 16px;
+        padding: 8px 16px;
+        bottom: 10px;
+        max-width: calc(100% - 24px);
+        text-align: center;
+      }
+
+      .consult-title {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <section class="hero">
-     <img src="스크린샷 2026-04-20 153539.png" alt="삼육대학교 졸업예정자 및 지역 청년을 위한 취업 진로 통합 프로그램 라운지 배너" />
-    </section>
+  <div class="wrap">
+    <div class="page-title">
+      삼육대학교 졸업예정자 및 지역 청년을 위한 취업 진로 통합 프로그램 라운지 배너
+    </div>
 
-    <section class="section section-banner">
-      <img src="image(43).png" alt="행사 및 프로그램 라인업 배너" />
-    </section>
+    <!-- 배너 -->
+    <div class="banner">
+      <!-- 파일명은 실제 저장한 이름으로 바꿔야 함 -->
+      <img src="./banner.png" alt="삼육대학교 취업 진로 통합 프로그램 라운지 배너" />
+      <div class="banner-badge">[졸특] ONE_PASS 라운지</div>
+    </div>
 
-    <section class="section">
-      <div class="section-shell">
-        <div class="section-title"><span class="bar green"></span><span>[서울고용센터] 프로그램</span></div>
-        <div class="subhead">3-in-1 협력모델 · 청년특화프로그램 4월</div>
+    <!-- 상담&컨설팅 -->
+    <section class="section purple">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">상담 &amp; 컨설팅 신청</h2>
+      </div>
 
-        <div class="timeline-item">
-          <h3>프로디저 진로설계</h3>
-          <p class="tiny">프레디저 검사를 활용한 진로설계 프로그램</p>
-          <div class="meta">
-            <div>📅 일정: 2026. 4. 24. (금) 16:00~18:00</div>
-            <div>📍 장소: 서울고용센터 1층 청프로그램실</div>
-          </div>
-          <a class="cta green" target="_blank" rel="noopener noreferrer" href="https://form.naver.com/response/HET_44ampSquxlDaAFwmnA">신청 바로가기</a>
+      <div class="consult-box">
+        <div class="consult-label">취업 준비 맞춤 지원</div>
+        <div class="consult-title">나에게 맞는 상담과 컨설팅을 한 번에 신청하세요</div>
+        <div class="consult-text">
+          진로 설정부터 자기소개서, 면접, 취업 준비 방향 점검까지<br>
+          필요한 상담과 컨설팅을 쉽고 빠르게 신청할 수 있습니다.
         </div>
-
-        <div class="timeline-item">
-          <h3>맞춤형 직무역량 및 스킬향상</h3>
-          <p class="tiny">AI디지털 역량강화(경영정보시각화) 맞춤형 프로그램</p>
-          <div class="meta">
-            <div>📅 일정: 2026. 4. 24. (금) 14:00~18:00</div>
-            <div>📍 장소: 서울고용센터 1층 다목적홀</div>
-          </div>
-          <a class="cta green" target="_blank" rel="noopener noreferrer" href="https://form.naver.com/response/fZXN8phfitk-O2DRr9eMkg">신청 바로가기</a>
-        </div>
+        <a href="#" class="consult-btn">상담 &amp; 컨설팅 신청하기</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-shell">
-        <div class="section-title"><span class="bar green"></span><span>[메인비즈협회] 프로그램 라인업</span></div>
-        <div class="card">
-          <div class="eyebrow">기업 연계 실무 프로젝트</div>
-          <h3>빅트론텍 연계 실전 프로젝트</h3>
-          <p>• 갤럭시 워치 퍼팅 도우미 앱 개발<br>• AIClear PPT 앱 제작 (앱 + 관리서버 + 음성/세션 제어 구조)</p>
-          <div class="meta" style="margin-top:12px;">
-            <div>📅 신청기한: 2026. 04. 29. (수) ~ 2026. 05. 03. (일)</div>
-            <div>🏢 참여 기업: 빅트론텍</div>
-          </div>
-          <a class="cta green" target="_blank" rel="noopener noreferrer" href="https://sugary-lathe-e35.notion.site/342cad4e5bb7805c8ab6eecbd20fde1a">신청 바로가기</a>
-        </div>
+    <!-- 서울고용센터 -->
+    <section class="section green">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">[서울고용센터] 프로그램</h2>
       </div>
-    </section>
+      <div class="section-sub">3-in-1 협력모델 · 청년특화프로그램 4월</div>
 
-    <section class="section">
-      <div class="section-shell">
-        <div class="section-title"><span class="bar purple"></span><span>상담 &amp; 컨설팅 예약</span></div>
-
-        <div class="consult-banner">
-          <img src="image(45).png" alt="상담 및 컨설팅 예약 안내 배너" />
+      <div class="program-list" style="margin-top:18px;">
+        <div class="program-card green-card">
+          <div class="program-top-tag tag-green">서울고용센터 진행</div>
+          <div class="program-body">
+            <div class="program-info">
+              <div class="program-name">프레디저 진로설계</div>
+              <div class="program-desc">프레디저 검사를 활용한 진로설계 프로그램</div>
+              <div class="program-meta">
+                🗓 일정: 2026. 4. 24. (금) 16:00~18:00<br>
+                📍 장소: 서울고용센터 1층 청프로그램실
+              </div>
+            </div>
+            <a href="#" class="apply-btn btn-green">신청 바로가기</a>
+          </div>
         </div>
 
-        <div class="consult-list">
-          <div class="consult-link">
-            <div class="consult-left">
-              <div class="label">졸업생 특화 신청서 작성 (필수작성)</div>
-              <div class="desc">졸업생 특화 프로그램 참여 전 필수 작성</div>
+        <div class="program-card green-card">
+          <div class="program-top-tag tag-green">서울고용센터 진행</div>
+          <div class="program-body">
+            <div class="program-info">
+              <div class="program-name">맞춤형 직무역량 및 스킬향상</div>
+              <div class="program-desc">AI디지털 역량강화(경영정보시각화) 맞춤형 프로그램</div>
+              <div class="program-meta">
+                🗓 일정: 2026. 4. 24. (금) 14:00~18:00<br>
+                📍 장소: 서울고용센터 1층 다목적홀
+              </div>
             </div>
-            <a class="mini-btn" target="_blank" rel="noopener noreferrer" href="https://buly.kr/YgHS2J">신청하기</a>
-          </div>
-
-          <div class="consult-link">
-            <div class="consult-left">
-              <div class="label">ALL_PASS 신청서</div>
-              <div class="desc">진로, 직무, 채용, 지원서, 면접 컨설팅 등</div>
-            </div>
-            <a class="mini-btn" target="_blank" rel="noopener noreferrer" href="https://forms.gle/fCz3WaVfGpvRxiGe6">신청하기</a>
-          </div>
-
-          <div class="consult-link">
-            <div class="consult-left">
-              <div class="label">SU-PLUS 예약</div>
-              <div class="desc">홈페이지에서 원하는 상담과 프로그램 예약</div>
-            </div>
-            <a class="mini-btn" target="_blank" rel="noopener noreferrer" href="https://su-plus.syu.ac.kr/">예약하기</a>
+            <a href="#" class="apply-btn btn-green">신청 바로가기</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-shell">
-        <div class="section-title"><span class="bar blue"></span><span>2026 삼육대 졸특 대표 프로그램</span></div>
-        <div class="program-grid">
-          <div class="program-box">
-            <div class="program-icon">🚀</div>
-            <h4>커리어 스타트업</h4>
-            <p>나만의 길을 찾는 특별한 진로 설계 프로그램</p>
-          </div>
-          <div class="program-box">
-            <div class="program-icon">🎙️</div>
-            <h4>취업준비콘서트</h4>
-            <p>현직자가 전하는 생생한 직무 &amp; 채용 토크</p>
-          </div>
-          <div class="program-box">
-            <div class="program-icon">👥</div>
-            <h4>모의면접 DAY</h4>
-            <p>실제 면접관과 함께하는 다대다 실전 면접</p>
-          </div>
-          <div class="program-box">
-            <div class="program-icon">⭐</div>
-            <h4>청년특화 프로그램</h4>
-            <p>산업 현장 기반의 실전 직무 탐구 프로그램</p>
+    <!-- 메인비즈 -->
+    <section class="section purple">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">[메인비즈협회] 프로그램 라인업</h2>
+      </div>
+
+      <div class="program-list" style="margin-top:18px;">
+        <div class="program-card purple-card">
+          <div class="program-top-tag tag-purple">기업 연계 실무 프로젝트</div>
+          <div class="program-body">
+            <div class="program-info">
+              <div class="program-name">빅토론텍 연계 실전 프로젝트</div>
+              <div class="program-desc">
+                • 갤럭시 워치 피팅 도우미 앱 개발<br>
+                • AIClear PPT 앱 제작 (앱 + 관리서버 + 음성/세션 제어 구조)
+              </div>
+              <div class="program-meta">
+                🗓 신청기한: 2026. 04. 29. (수) ~ 2026. 05. 03. (일)
+              </div>
+            </div>
+            <a href="#" class="apply-btn btn-purple">신청 바로가기</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-shell">
-        <div class="section-title"><span class="bar blue"></span><span>문의 / 채널 안내</span></div>
-        <div class="contact-wrap">
-          <div class="contact-list">
-            <div class="contact-item">
-              <div class="label">전화 문의</div>
-              <div class="value">02-3399-3250</div>
-            </div>
-            <div class="contact-item">
-              <div class="label">이메일</div>
-              <div class="value">job@syu.ac.kr</div>
-            </div>
-            <div class="contact-item">
-              <div class="label">카카오톡 채널</div>
-              <div class="value">삼육대학교 대학일자리본부</div>
-              <a class="cta blue" target="_blank" rel="noopener noreferrer" href="http://pf.kakao.com/_UjgbG">카카오톡 채널 바로가기</a>
-            </div>
+    <!-- 대표 프로그램 -->
+    <section class="section blue">
+      <div class="section-header">
+        <div class="section-bar"></div>
+        <h2 class="section-title">2026 삼육대 졸특 대표 프로그램</h2>
+      </div>
+
+      <div class="card-grid" style="margin-top:18px;">
+        <div class="mini-card">
+          <div class="mini-icon">💼</div>
+          <div class="mini-title">추천채용 / 일반채용</div>
+          <div class="mini-desc">
+            채용 연계 기회를 통해 실제 취업까지 이어지는 프로그램
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-icon">🚀</div>
+          <div class="mini-title">SYU 역량강화 프로그램</div>
+          <div class="mini-desc">
+            취업 경쟁력을 높이는 단계별 역량 개발 프로그램
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-icon">🧩</div>
+          <div class="mini-title">깔맞춤 나RG 컨설팅</div>
+          <div class="mini-desc">
+            성장과정, 장단점, 에피소드, 가치관 정리까지 맞춤형 컨설팅
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-icon">📝</div>
+          <div class="mini-title">직무별 지원서 작성법</div>
+          <div class="mini-desc">
+            직무에 맞는 자기소개서와 지원서 작성 전략 안내
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-icon">🎤</div>
+          <div class="mini-title">깔맞춤 면접특강</div>
+          <div class="mini-desc">
+            실전 면접에서 바로 써먹는 답변 구성과 표현법
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-icon">🤝</div>
+          <div class="mini-title">커리어매칭 LIVE</div>
+          <div class="mini-desc">
+            현장면접과 기업 매칭으로 이어지는 실전 취업 프로그램
           </div>
         </div>
       </div>
     </section>
-
-    <div class="footer-space"></div>
   </div>
 </body>
 </html>
-
