@@ -39,6 +39,9 @@
       --pink:#f36f97;
       --pink-soft:#fff1f5;
 
+      --yellow:#e6a930;
+      --yellow-soft:#fff8e8;
+
       --shadow:0 10px 24px rgba(42, 76, 117, 0.08);
       --radius-xl:24px;
       --radius-lg:18px;
@@ -256,6 +259,7 @@
     .p-icon.purple{background:var(--purple-soft); color:var(--purple);}
     .p-icon.orange{background:var(--orange-soft); color:var(--orange);}
     .p-icon.pink{background:var(--pink-soft); color:var(--pink);}
+    .p-icon.yellow{background:var(--yellow-soft); color:var(--yellow);}
 
     .program-text strong{
       display:block;
@@ -307,6 +311,239 @@
     .mini-btn.purple{background:var(--purple);}
     .mini-btn.orange{background:var(--orange);}
     .mini-btn.pink{background:var(--pink);}
+
+    /* 연계 프로그램 아코디언 */
+    .linked-accordion{
+      margin-top:10px;
+      border:1px solid #e6edf5;
+      border-radius:18px;
+      overflow:hidden;
+      background:#fbfdff;
+    }
+
+    .linked-trigger{
+      width:100%;
+      border:none;
+      background:#fff;
+      display:grid;
+      grid-template-columns:44px 1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      text-align:left;
+      cursor:pointer;
+    }
+
+    .linked-trigger-text strong{
+      display:block;
+      font-size:13px;
+      color:#27415f;
+      margin-bottom:3px;
+      word-break:keep-all;
+    }
+
+    .linked-trigger-text span{
+      display:block;
+      font-size:11px;
+      color:var(--muted);
+      line-height:1.45;
+      word-break:keep-all;
+    }
+
+    .linked-toggle-label{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:var(--blue);
+      color:#fff;
+      border-radius:999px;
+      padding:9px 14px;
+      font-size:11px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    .linked-toggle-arrow{
+      font-size:12px;
+      transition:transform .2s ease;
+    }
+
+    .linked-accordion.open .linked-toggle-arrow{
+      transform:rotate(180deg);
+    }
+
+    .linked-body{
+      display:none;
+      border-top:1px solid #e6edf5;
+      padding:12px;
+      background:#fcfdff;
+    }
+
+    .linked-accordion.open .linked-body{
+      display:block;
+    }
+
+    .linked-notice{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      background:#f1f6fc;
+      border:1px solid #e1ebf6;
+      border-radius:14px;
+      padding:10px 12px;
+      margin-bottom:10px;
+    }
+
+    .linked-notice-icon{
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:var(--blue);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      font-weight:800;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+
+    .linked-notice-text{
+      margin:0;
+      font-size:10.5px;
+      line-height:1.55;
+      color:#5f738a;
+      font-weight:700;
+      word-break:keep-all;
+    }
+
+    .linked-program{
+      border:1px solid #e6edf5;
+      border-radius:14px;
+      background:#fff;
+      padding:12px;
+      margin-bottom:10px;
+    }
+
+    .linked-program:last-child{
+      margin-bottom:0;
+    }
+
+    .linked-program-top{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+    }
+
+    .linked-num-badge{
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      background:var(--blue-soft);
+      color:var(--blue);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+
+    .linked-program-text{
+      flex:1;
+      min-width:0;
+    }
+
+    .linked-program-text strong{
+      display:block;
+      font-size:12.5px;
+      line-height:1.5;
+      color:#24415f;
+      margin-bottom:4px;
+      word-break:keep-all;
+    }
+
+    .linked-program-text span{
+      display:block;
+      font-size:11px;
+      line-height:1.55;
+      color:#6f8298;
+      word-break:keep-all;
+    }
+
+    .deadline-chip{
+      display:inline-block;
+      margin-top:8px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#eef5ff;
+      color:var(--blue);
+      font-size:10.5px;
+      font-weight:800;
+    }
+
+    .company-image-wrap{
+      margin-top:10px;
+      padding:8px;
+      border:1px solid #e5edf7;
+      background:#fbfdff;
+      border-radius:12px;
+    }
+
+    .company-image-wrap img{
+      width:100%;
+      display:block;
+      border-radius:8px;
+    }
+
+    .company-image-note{
+      margin-top:8px;
+      font-size:10px;
+      line-height:1.5;
+      color:#8092a5;
+      text-align:left;
+      word-break:keep-all;
+    }
+
+    .linked-btn-row{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .linked-btn{
+      display:inline-block;
+      text-decoration:none;
+      border-radius:999px;
+      padding:9px 14px;
+      font-size:11px;
+      font-weight:800;
+      text-align:center;
+      min-width:92px;
+    }
+
+    .linked-btn.view{
+      background:#fff;
+      border:1px solid #9fc5f6;
+      color:var(--blue);
+    }
+
+    .linked-btn.apply{
+      background:var(--blue);
+      border:1px solid var(--blue);
+      color:#fff;
+    }
+
+    .linked-foot-note{
+      margin-top:6px;
+      text-align:center;
+      font-size:10px;
+      color:#8798aa;
+      line-height:1.5;
+    }
 
     /* 3번 */
     .step-grid{
@@ -516,7 +753,8 @@
       }
 
       .program-item,
-      .consult-box{
+      .consult-box,
+      .linked-trigger{
         grid-template-columns:44px 1fr;
       }
 
@@ -530,6 +768,12 @@
       .program-actions .mini-btn,
       .consult-actions .consult-btn,
       .openchat-btn-wrap .consult-btn{
+        width:100%;
+      }
+
+      .linked-toggle-label{
+        grid-column:1 / -1;
+        justify-content:center;
         width:100%;
       }
     }
@@ -595,15 +839,99 @@
 
       <div class="program-list">
 
-        <div class="program-item">
-          <div class="p-icon blue">👥</div>
-          <div class="program-text">
-            <strong>연계 프로그램</strong>
-            <span>직무 기반 현장 연계 지원</span>
-            <span class="program-note">※ 둘러보기 후 참여하세요.</span>
-          </div>
-          <div class="program-actions">
-            <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn blue" target="_blank" rel="noopener noreferrer">참여하기</a>
+        <!-- 연계 프로그램 아코디언 -->
+        <div class="linked-accordion" id="linkedAccordion">
+          <button type="button" class="linked-trigger" id="linkedTrigger">
+            <div class="p-icon blue">👥</div>
+            <div class="linked-trigger-text">
+              <strong>연계 프로그램</strong>
+              <span>직무 기반 현장 연계 지원</span>
+            </div>
+            <div class="linked-toggle-label">
+              프로그램 확인하기
+              <span class="linked-toggle-arrow">⌃</span>
+            </div>
+          </button>
+
+          <div class="linked-body" id="linkedBody">
+            <div class="linked-notice">
+              <div class="linked-notice-icon">i</div>
+              <p class="linked-notice-text">
+                일경험 연계 추천서는 참여 신청서 작성 완료자에 한하여 제공됩니다.
+              </p>
+            </div>
+
+            <div class="linked-program">
+              <div class="linked-program-top">
+                <div class="linked-num-badge">1</div>
+                <div class="linked-program-text">
+                  <strong>[퍼스트인잡] 2026 미래내일 일경험(인턴형)</strong>
+                  <span>기업 인턴십 연계 실무 경험</span>
+                  <span>아래 업체 리스트를 먼저 확인한 뒤, 희망하는 경우 신청서를 작성해 주세요.</span>
+                </div>
+              </div>
+
+              <div class="company-image-wrap">
+                <img src="firstinjob-list.png" alt="퍼스트인잡 참여기업 리스트">
+                <div class="company-image-note">
+                  ※ 참여기업 모집 일정 및 시작일은 운영 상황에 따라 변동될 수 있으며 사전에 안내됩니다.
+                </div>
+              </div>
+
+              <div class="linked-btn-row">
+                <a href="https://buly.kr/BIWkI2w" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
+                <a href="https://forms.gle/92ao1oCjDt7A4Vf77" class="linked-btn apply" target="_blank" rel="noopener noreferrer">신청하기</a>
+              </div>
+            </div>
+
+            <div class="linked-program">
+              <div class="linked-program-top">
+                <div class="linked-num-badge">2</div>
+                <div class="linked-program-text">
+                  <strong>[커리어하이] 2026 미래내일 일경험(프로젝트형)</strong>
+                  <span>고용노동부 청년 일경험 사업 중 "금융권 실무" 유일 프로그램</span>
+                  <div class="deadline-chip">신청기한 04.26(일)</div>
+                </div>
+              </div>
+
+              <div class="linked-btn-row">
+                <a href="https://buly.kr/B7bzJJ4" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
+                <a href="https://forms.gle/92ao1oCjDt7A4Vf77" class="linked-btn apply" target="_blank" rel="noopener noreferrer">신청하기</a>
+              </div>
+            </div>
+
+            <div class="linked-program">
+              <div class="linked-program-top">
+                <div class="linked-num-badge">3</div>
+                <div class="linked-program-text">
+                  <strong>[종로여성인력개발센터] 2026년 미래내일 일경험(프로젝트형)</strong>
+                  <span>방송·영상 콘텐츠 프로그램 기획, 개발 일경험 사업</span>
+                </div>
+              </div>
+
+              <div class="linked-btn-row">
+                <a href="https://buly.kr/8Tscb8q" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
+                <a href="https://forms.gle/92ao1oCjDt7A4Vf77" class="linked-btn apply" target="_blank" rel="noopener noreferrer">신청하기</a>
+              </div>
+            </div>
+
+            <div class="linked-program">
+              <div class="linked-program-top">
+                <div class="linked-num-badge">4</div>
+                <div class="linked-program-text">
+                  <strong>[(사)한국경영혁신중소기업협회] 2026년 미래내일일경험(프로젝트) 수요조사</strong>
+                  <span>프로젝트형 일경험 프로그램 수요조사</span>
+                </div>
+              </div>
+
+              <div class="linked-btn-row">
+                <a href="https://forms.gle/FtXPbYDQQsGzF2A38" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
+              </div>
+            </div>
+
+            <div class="linked-foot-note">
+              ※ 상기 프로그램 일정 및 내용은 운영 상황에 따라 변경될 수 있습니다.
+            </div>
           </div>
         </div>
 
@@ -752,7 +1080,7 @@
         <div class="method-steps">
           <div class="method-step">
             <span class="bullet">➡️</span>
-            <span>나에게 맞는 직무 찾기 및 진로 설정 </span>
+            <span>나에게 맞는 직무 찾기 및 진로 설정</span>
           </div>
 
           <div class="method-step">
@@ -769,17 +1097,16 @@
             <span class="bullet">➡️</span>
             <span>기업/직무 분석 방법 코칭</span>
           </div>
-          
+
           <div class="method-step">
             <span class="bullet">➡️</span>
             <span>채용정보 제공 및 추천채용 연계</span>
           </div>
-          
+
           <div class="method-step">
             <span class="bullet">➡️</span>
             <span>취업까지 이어지는 맞춤 전략 설계</span>
           </div>
-
         </div>
       </div>
     </section>
@@ -805,5 +1132,14 @@
     </section>
 
   </div>
+
+  <script>
+    const linkedAccordion = document.getElementById('linkedAccordion');
+    const linkedTrigger = document.getElementById('linkedTrigger');
+
+    linkedTrigger.addEventListener('click', function () {
+      linkedAccordion.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
