@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>삼육대학교 ONE-PASS LOUNGE</title>
+
+  <!-- 대표 이미지(공유 썸네일) -->
+  <meta property="og:title" content="삼육대학교 ONE-PASS LOUNGE" />
+  <meta property="og:description" content="졸업(예정)자 및 지역 청년을 위한 취업, 진로, 통합 프로그램" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://36onepasslounge.github.io/onepass-banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://36onepasslounge.github.io/onepass-banner.png" />
+
   <style>
     :root{
       --bg:#eef3f8;
@@ -93,15 +104,18 @@
       position:relative;
       z-index:2;
       display:flex;
-      justify-content:space-between;
+      justify-content:flex-start; /* 수정 */
       align-items:flex-start;
-      gap:8px;
+      gap:0; /* 수정: 글씨와 캐릭터 사이 간격 축소 */
     }
 
     .hero-copy{
       flex:1;
       min-width:0;
       padding-top:2px;
+      margin-right:-10px; /* 수정: 캐릭터 영역을 조금 더 가깝게 */
+      position:relative;
+      z-index:2;
     }
 
     .brand{
@@ -159,8 +173,9 @@
     .hero-art{
       position:relative;
       flex:0 0 auto;
-      width:160px;
+      width:145px; /* 수정: 약간 줄여서 더 붙어 보이게 */
       height:120px;
+      margin-left:-8px; /* 수정: 글씨 영역 쪽으로 당김 */
     }
 
     .hero-circle{
@@ -243,13 +258,13 @@
 
     .char1{
       width:78px;
-      right:62px;
+      right:56px; /* 수정 */
       bottom:8px;
     }
 
     .char2{
       width:72px;
-      right:10px;
+      right:6px; /* 수정 */
       bottom:4px;
     }
 
@@ -608,18 +623,19 @@
       }
 
       .hero-art{
-        width:138px;
+        width:128px;
         height:112px;
+        margin-left:-10px;
       }
 
       .char1{
-        width:68px;
-        right:54px;
+        width:66px;
+        right:50px;
       }
 
       .char2{
-        width:64px;
-        right:8px;
+        width:62px;
+        right:4px;
       }
 
       .hero-title{
@@ -714,7 +730,7 @@
             <strong>연계 프로그램</strong>
             <span>기업·직무 기반 프로그램과 현장형 연계 지원</span>
           </div>
-          <a href="#" class="mini-btn blue">신청하기</a>
+          <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn blue" target="_blank" rel="noopener noreferrer">신청하기</a>
         </div>
 
         <div class="program-item">
@@ -723,7 +739,7 @@
             <strong>깔맞춤 면접 컨설팅</strong>
             <span>실전 면접 대비를 위한 맞춤형 면접 프로그램</span>
           </div>
-          <a href="#" class="mini-btn green">신청하기</a>
+          <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn green" target="_blank" rel="noopener noreferrer">신청하기</a>
         </div>
 
         <div class="program-item">
@@ -732,7 +748,7 @@
             <strong>진로설계 직무 특강</strong>
             <span> 마케팅,영업,경영 관리,회계,총무,반도체,바이오 등 직무이해를 통한 설계 프로그램</span>
           </div>
-          <a href="#" class="mini-btn purple">신청하기</a>
+          <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn purple" target="_blank" rel="noopener noreferrer">신청하기</a>
         </div>
 
         <div class="program-item">
@@ -741,7 +757,7 @@
             <strong>자격취득 프로그램</strong>
             <span>취업 역량 강화를 위한 필수 프로그램</span>
           </div>
-          <a href="#" class="mini-btn orange">신청하기</a>
+          <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn orange" target="_blank" rel="noopener noreferrer">신청하기</a>
         </div>
 
         <div class="program-item">
@@ -750,7 +766,7 @@
             <strong>AI 역량 강화 프로그램</strong>
             <span>이젠 필수! 진로·취업·직무 선택의 시작!</span>
           </div>
-          <a href="#" class="mini-btn pink">신청하기</a>
+          <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn pink" target="_blank" rel="noopener noreferrer">신청하기</a>
         </div>
       </div>
     </section>
@@ -817,47 +833,51 @@
     </section>
 
     <!-- 4. 컨설팅 신청 방법 -->
-<section class="section">
-  <div class="section-title">
-    <div class="num">4</div>
-    <div>
-      <h2>컨설팅 신청 방법</h2>
-      <p>아래 순서대로 진행해 주세요.</p>
-    </div>
+    <section class="section">
+      <div class="section-title">
+        <div class="num">4</div>
+        <div>
+          <h2>컨설팅 신청 방법</h2>
+          <p>아래 순서대로 진행해 주세요.</p>
+        </div>
+      </div>
+
+      <div class="consult-box">
+        <div class="consult-icon">📋</div>
+        <div class="consult-text">
+          <strong>컨설팅 신청 링크</strong>
+          <a href="https://su-plus.syu.ac.kr/" target="_blank" rel="noopener noreferrer">https://su-plus.syu.ac.kr/</a>
+          <br>
+          <span>링크 클릭 후 SU-Plus에서 신청해 주세요.</span>
+        </div>
+        <a href="https://su-plus.syu.ac.kr/" target="_blank" rel="noopener noreferrer" class="consult-btn">바로가기</a>
+      </div>
+
+      <div class="method-box">
+        <p class="method-title">신청 순서 안내</p>
+
+        <div class="method-step">
+          <span class="bullet">➡️</span>
+          <span>대학일자리플러스센터</span>
+        </div>
+
+        <div class="method-step">
+          <span class="bullet">➡️</span>
+          <span>진로 및 취·창업 상담</span>
+        </div>
+
+        <div class="method-step">
+          <span class="bullet">➡️</span>
+          <span>컨설턴트 선택</span>
+        </div>
+
+        <div class="method-step">
+          <span class="bullet">➡️</span>
+          <span>날짜 및 시간 선택</span>
+        </div>
+      </div>
+    </section>
+
   </div>
-
-  <div class="consult-box">
-    <div class="consult-icon">📋</div>
-    <div class="consult-text">
-      <strong>컨설팅 신청 링크</strong>
-      <a href="https://su-plus.syu.ac.kr/" target="_blank" rel="noopener noreferrer">https://su-plus.syu.ac.kr/</a>
-      <br>
-      <span>링크 클릭 후 SU-Plus에서 신청해 주세요.</span>
-    </div>
-    <a href="https://su-plus.syu.ac.kr/" target="_blank" rel="noopener noreferrer" class="consult-btn">바로가기</a>
-  </div>
-
-  <div class="method-box">
-    <p class="method-title">신청 순서 안내</p>
-
-    <div class="method-step">
-      <span class="bullet">➡️</span>
-      <span>대학일자리플러스센터</span>
-    </div>
-
-    <div class="method-step">
-      <span class="bullet">➡️</span>
-      <span>진로 및 취·창업 상담</span>
-    </div>
-
-    <div class="method-step">
-      <span class="bullet">➡️</span>
-      <span>컨설턴트 선택</span>
-    </div>
-
-    <div class="method-step">
-      <span class="bullet">➡️</span>
-      <span>날짜 및 시간 선택</span>
-    </div>
-  </div>
-</section>
+</body>
+</html>
