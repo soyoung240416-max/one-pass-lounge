@@ -1,832 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>삼육대학교 ONE-PASS LOUNGE</title>
-
-  <!-- 대표 이미지(공유 썸네일) -->
-  <meta property="og:title" content="삼육대학교 ONE-PASS LOUNGE" />
-  <meta property="og:description" content="졸업(예정)자 및 지역 청년을 위한 취업, 진로, 통합 프로그램" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://36onepasslounge.github.io/banner-final.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://36onepasslounge.github.io/banner-final.png" />
-
-  <style>
-    :root{
-      --bg:#eef3f8;
-      --card:#ffffff;
-      --line:#dfe7f1;
-      --text:#1f3552;
-      --muted:#72859b;
-
-      --navy:#193761;
-      --blue:#2b8df2;
-      --blue-soft:#eef5ff;
-
-      --green:#59b86e;
-      --green-soft:#eef9f1;
-
-      --purple:#8b6df0;
-      --purple-soft:#f4efff;
-
-      --orange:#f1ab43;
-      --orange-soft:#fff6e7;
-
-      --pink:#f36f97;
-      --pink-soft:#fff1f5;
-
-      --yellow:#e6a930;
-      --yellow-soft:#fff8e8;
-
-      --shadow:0 10px 24px rgba(42, 76, 117, 0.08);
-      --radius-xl:24px;
-      --radius-lg:18px;
-      --radius-md:14px;
-    }
-
-    *{box-sizing:border-box;}
-
-    html, body{
-      margin:0;
-      padding:0;
-      background:var(--bg);
-      font-family:"맑은 고딕","Malgun Gothic",sans-serif;
-      color:var(--text);
-    }
-
-    body{
-      display:flex;
-      justify-content:center;
-      padding:18px 12px 40px;
-    }
-
-    .page{
-      width:100%;
-      max-width:430px;
-    }
-
-    /* 상단 배너 이미지 */
-    .hero-banner{
-      margin-bottom:14px;
-    }
-
-    .hero-banner img{
-      width:100%;
-      display:block;
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      border:1px solid #e3ecf6;
-      background:#fff;
-    }
-
-    /* 대표 이미지 */
-    .feature-image{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-      padding:10px;
-      margin-bottom:14px;
-    }
-
-    .feature-image img{
-      width:100%;
-      display:block;
-      border-radius:16px;
-    }
-
-    /* 공통 섹션 */
-    .section{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:22px;
-      box-shadow:var(--shadow);
-      padding:14px;
-      margin-bottom:14px;
-    }
-
-    .section-title{
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-      margin-bottom:12px;
-    }
-
-    .num{
-      width:22px;
-      height:22px;
-      border-radius:7px;
-      background:#eff4fb;
-      color:#4e6f97;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:12px;
-      font-weight:800;
-      flex:0 0 auto;
-      margin-top:1px;
-    }
-
-    .section-title h2{
-      margin:0;
-      font-size:15px;
-      line-height:1.35;
-      font-weight:800;
-      color:#2a4365;
-    }
-
-    .section-title p{
-      margin:3px 0 0;
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.45;
-    }
-
-    /* 1번 */
-    .apply-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    .apply-card{
-      border:1px solid #e4edf6;
-      background:#fbfdff;
-      border-radius:14px;
-      padding:12px;
-      min-height:70px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      text-decoration:none;
-      color:inherit;
-      transition:.18s ease;
-    }
-
-    .apply-card:hover{
-      transform:translateY(-1px);
-      box-shadow:0 8px 18px rgba(66,105,150,.08);
-    }
-
-    .apply-left{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-
-    .apply-icon{
-      width:34px;
-      height:34px;
-      border-radius:10px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:17px;
-      flex:0 0 auto;
-    }
-
-    .apply-icon.green{
-      background:var(--green-soft);
-      color:var(--green);
-    }
-
-    .apply-icon.purple{
-      background:var(--purple-soft);
-      color:var(--purple);
-    }
-
-    .apply-text strong{
-      display:block;
-      font-size:12px;
-      line-height:1.35;
-      color:#24415f;
-      word-break:keep-all;
-    }
-
-    .apply-note{
-      margin-top:10px;
-      font-size:10.5px;
-      line-height:1.55;
-      color:#7b8ea4;
-      text-align:center;
-      word-break:keep-all;
-    }
-
-    .arrow{
-      color:#9eb0c2;
-      font-size:16px;
-      font-weight:700;
-      flex:0 0 auto;
-    }
-
-    /* 2번 */
-    .program-list{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .program-item{
-      border:1px solid #e6edf5;
-      border-radius:14px;
-      padding:12px;
-      display:grid;
-      grid-template-columns:44px 1fr auto;
-      gap:12px;
-      align-items:center;
-      background:#fff;
-    }
-
-    .p-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      flex:0 0 auto;
-    }
-
-    .p-icon.blue{background:var(--blue-soft); color:var(--blue);}
-    .p-icon.green{background:var(--green-soft); color:var(--green);}
-    .p-icon.purple{background:var(--purple-soft); color:var(--purple);}
-    .p-icon.orange{background:var(--orange-soft); color:var(--orange);}
-    .p-icon.pink{background:var(--pink-soft); color:var(--pink);}
-    .p-icon.yellow{background:var(--yellow-soft); color:var(--yellow);}
-
-    .program-text strong{
-      display:block;
-      font-size:13px;
-      color:#27415f;
-      margin-bottom:3px;
-      word-break:keep-all;
-    }
-
-    .program-text span{
-      display:block;
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.45;
-      word-break:keep-all;
-    }
-
-    .program-note{
-      margin-top:4px;
-      font-size:10px !important;
-      color:#8ea0b4 !important;
-      line-height:1.45 !important;
-      font-weight:700;
-    }
-
-    .program-actions{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      align-items:flex-end;
-    }
-
-    .mini-btn{
-      display:inline-block;
-      border:none;
-      color:#fff;
-      border-radius:999px;
-      padding:9px 14px;
-      font-size:11px;
-      font-weight:800;
-      min-width:86px;
-      white-space:nowrap;
-      text-decoration:none;
-      text-align:center;
-    }
-
-    .mini-btn.blue{background:var(--blue);}
-    .mini-btn.green{background:var(--green);}
-    .mini-btn.purple{background:var(--purple);}
-    .mini-btn.orange{background:var(--orange);}
-    .mini-btn.pink{background:var(--pink);}
-
-    /* 연계 프로그램 아코디언 */
-    .linked-accordion{
-      margin-top:10px;
-      border:1px solid #e6edf5;
-      border-radius:18px;
-      overflow:hidden;
-      background:#fbfdff;
-    }
-
-    .linked-trigger{
-      width:100%;
-      border:none;
-      background:#fff;
-      display:grid;
-      grid-template-columns:44px 1fr auto;
-      gap:12px;
-      align-items:center;
-      padding:12px;
-      text-align:left;
-      cursor:pointer;
-    }
-
-    .linked-trigger-text strong{
-      display:block;
-      font-size:13px;
-      color:#27415f;
-      margin-bottom:3px;
-      word-break:keep-all;
-    }
-
-    .linked-trigger-text span{
-      display:block;
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.45;
-      word-break:keep-all;
-    }
-
-    .linked-toggle-label{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:var(--blue);
-      color:#fff;
-      border-radius:999px;
-      padding:9px 14px;
-      font-size:11px;
-      font-weight:800;
-      white-space:nowrap;
-    }
-
-    .linked-toggle-arrow{
-      font-size:12px;
-      transition:transform .2s ease;
-    }
-
-    .linked-accordion.open .linked-toggle-arrow{
-      transform:rotate(180deg);
-    }
-
-    .linked-body{
-      display:none;
-      border-top:1px solid #e6edf5;
-      padding:12px;
-      background:#fcfdff;
-    }
-
-    .linked-accordion.open .linked-body{
-      display:block;
-    }
-
-    .linked-notice{
-      display:flex;
-      gap:8px;
-      align-items:flex-start;
-      background:#f1f6fc;
-      border:1px solid #e1ebf6;
-      border-radius:14px;
-      padding:10px 12px;
-      margin-bottom:10px;
-    }
-
-    .linked-notice-icon{
-      width:20px;
-      height:20px;
-      border-radius:50%;
-      background:var(--blue);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:11px;
-      font-weight:800;
-      flex:0 0 auto;
-      margin-top:1px;
-    }
-
-    .linked-notice-text{
-      margin:0;
-      font-size:10.5px;
-      line-height:1.55;
-      color:#5f738a;
-      font-weight:700;
-      word-break:keep-all;
-    }
-
-    .linked-program{
-      border:1px solid #e6edf5;
-      border-radius:14px;
-      background:#fff;
-      padding:12px;
-      margin-bottom:10px;
-    }
-
-    .linked-program:last-child{
-      margin-bottom:0;
-    }
-
-    .linked-program-top{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-    }
-
-    .linked-num-badge{
-      width:28px;
-      height:28px;
-      border-radius:999px;
-      background:var(--blue-soft);
-      color:var(--blue);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:12px;
-      font-weight:900;
-      flex:0 0 auto;
-      margin-top:1px;
-    }
-
-    .linked-program-text{
-      flex:1;
-      min-width:0;
-    }
-
-    .linked-program-text strong{
-      display:block;
-      font-size:12.5px;
-      line-height:1.5;
-      color:#24415f;
-      margin-bottom:4px;
-      word-break:keep-all;
-    }
-
-    .linked-program-text span{
-      display:block;
-      font-size:11px;
-      line-height:1.55;
-      color:#6f8298;
-      word-break:keep-all;
-    }
-
-    .deadline-chip{
-      display:inline-block;
-      margin-top:8px;
-      padding:5px 10px;
-      border-radius:999px;
-      background:#eef5ff;
-      color:var(--blue);
-      font-size:10.5px;
-      font-weight:800;
-    }
-
-    .company-image-wrap{
-      margin-top:10px;
-      padding:8px;
-      border:1px solid #e5edf7;
-      background:#fbfdff;
-      border-radius:12px;
-    }
-
-    .company-image-wrap img{
-      width:100%;
-      display:block;
-      border-radius:8px;
-    }
-
-    .company-image-note{
-      margin-top:8px;
-      font-size:10px;
-      line-height:1.5;
-      color:#8092a5;
-      text-align:left;
-      word-break:keep-all;
-    }
-
-    .linked-btn-row{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    .linked-btn{
-      display:inline-block;
-      text-decoration:none;
-      border-radius:999px;
-      padding:9px 14px;
-      font-size:11px;
-      font-weight:800;
-      text-align:center;
-      min-width:92px;
-    }
-
-    .linked-btn.view{
-      background:#fff;
-      border:1px solid #9fc5f6;
-      color:var(--blue);
-    }
-
-    .linked-btn.apply{
-      background:var(--blue);
-      border:1px solid var(--blue);
-      color:#fff;
-    }
-
-    .linked-foot-note{
-      margin-top:6px;
-      text-align:center;
-      font-size:10px;
-      color:#8798aa;
-      line-height:1.5;
-    }
-
-    /* 3번 */
-    .step-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    .step-card{
-      border-radius:16px;
-      padding:12px;
-      border:1px solid #e6edf5;
-      min-height:126px;
-    }
-
-    .step-card .step{
-      font-size:11px;
-      font-weight:900;
-      margin-bottom:8px;
-      letter-spacing:.2px;
-    }
-
-    .step-card h3{
-      margin:0 0 8px;
-      font-size:13px;
-      line-height:1.35;
-      color:#294361;
-      font-weight:800;
-    }
-
-    .step-card ul{
-      margin:0;
-      padding-left:16px;
-    }
-
-    .step-card li{
-      font-size:10.5px;
-      line-height:1.55;
-      color:#6b8098;
-      margin-bottom:2px;
-    }
-
-    .step-card.green{background:#f4fbf6;}
-    .step-card.purple{background:#f7f4ff;}
-    .step-card.blue{background:#f2f7ff;}
-    .step-card.pink{background:#fff4f8;}
-
-    .step-card.green .step{color:var(--green);}
-    .step-card.purple .step{color:var(--purple);}
-    .step-card.blue .step{color:var(--blue);}
-    .step-card.pink .step{color:var(--pink);}
-
-    /* 4번 */
-    .consult-box{
-      border:1px solid #e6edf5;
-      background:#fbfdff;
-      border-radius:16px;
-      padding:12px;
-      display:grid;
-      grid-template-columns:44px 1fr auto;
-      gap:12px;
-      align-items:center;
-      margin-bottom:12px;
-    }
-
-    .consult-icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      background:var(--blue-soft);
-      color:var(--blue);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-    }
-
-    .consult-text strong{
-      display:block;
-      font-size:13px;
-      margin-bottom:3px;
-      color:#27415f;
-    }
-
-    .consult-text a,
-    .consult-text span{
-      font-size:11px;
-      line-height:1.45;
-      color:var(--muted);
-      text-decoration:none;
-      word-break:break-all;
-    }
-
-    .consult-actions{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      align-items:flex-end;
-    }
-
-    .consult-btn{
-      color:#fff;
-      text-decoration:none;
-      border-radius:999px;
-      padding:9px 14px;
-      font-size:11px;
-      font-weight:800;
-      white-space:nowrap;
-      text-align:center;
-      min-width:92px;
-    }
-
-    .consult-btn.blue{background:var(--blue);}
-    .consult-btn.purple{background:var(--purple);}
-
-    .method-box{
-      border:1px solid #e6edf5;
-      background:#fcfdff;
-      border-radius:16px;
-      padding:12px 14px;
-    }
-
-    .method-title{
-      margin:0 0 10px;
-      font-size:12px;
-      font-weight:800;
-      color:#2b4566;
-    }
-
-    .method-steps{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    .method-step{
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-      font-size:12px;
-      line-height:1.6;
-      color:#5e738c;
-      font-weight:700;
-      word-break:keep-all;
-    }
-
-    .method-step .bullet{
-      color:var(--blue);
-      font-weight:900;
-      flex:0 0 auto;
-    }
-
-    /* 5번 */
-    .openchat-box{
-      border:1px solid #e6edf5;
-      background:#fbfdff;
-      border-radius:16px;
-      padding:14px;
-    }
-
-    .openchat-title{
-      margin:0 0 6px;
-      font-size:13px;
-      line-height:1.45;
-      color:#27415f;
-      font-weight:800;
-      word-break:keep-all;
-    }
-
-    .openchat-text{
-      margin:0 0 4px;
-      font-size:11px;
-      color:var(--muted);
-      line-height:1.55;
-      word-break:keep-all;
-    }
-
-    .openchat-code{
-      display:inline-block;
-      margin-top:6px;
-      padding:5px 10px;
-      border-radius:999px;
-      background:var(--purple-soft);
-      color:var(--purple);
-      font-size:11px;
-      font-weight:800;
-    }
-
-    .openchat-btn-wrap{
-      margin-top:12px;
-      display:flex;
-      justify-content:flex-end;
-    }
-
-    .caption{
-      margin-top:8px;
-      text-align:center;
-      font-size:10px;
-      color:#8798aa;
-      line-height:1.5;
-    }
-
-    @media (max-width:390px){
-      .apply-grid,
-      .step-grid{
-        grid-template-columns:1fr;
-      }
-
-      .program-item,
-      .consult-box,
-      .linked-trigger{
-        grid-template-columns:44px 1fr;
-      }
-
-      .program-actions,
-      .consult-actions,
-      .openchat-btn-wrap{
-        grid-column:1 / -1;
-        width:100%;
-      }
-
-      .program-actions .mini-btn,
-      .consult-actions .consult-btn,
-      .openchat-btn-wrap .consult-btn{
-        width:100%;
-      }
-
-      .linked-toggle-label{
-        grid-column:1 / -1;
-        justify-content:center;
-        width:100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-
-    <!-- 상단 배너 -->
-    <section class="hero-banner">
-      <img src="banner-final.png" alt="삼육대학교 ONE-PASS LOUNGE 배너">
-    </section>
-
-    <!-- 1. 필수 작성 / 필수 입장 -->
-    <section class="section">
-      <div class="section-title">
-        <div class="num">1</div>
-        <div>
-          <h2>필수 작성 / 필수 입장</h2>
-          <p>프로그램 참여 전 아래 두 가지를 먼저 완료해 주세요.</p>
-        </div>
-      </div>
-
-      <div class="apply-grid">
-        <a href="https://buly.kr/YgHS2J" class="apply-card" target="_blank" rel="noopener noreferrer">
-          <div class="apply-left">
-            <div class="apply-icon green">📝</div>
-            <div class="apply-text">
-              <strong>졸업생 특화 프로그램 신청서</strong>
-            </div>
-          </div>
-          <span class="arrow">›</span>
-        </a>
-
-        <a href="http://pf.kakao.com/_UjgbG" class="apply-card" target="_blank" rel="noopener noreferrer">
-          <div class="apply-left">
-            <div class="apply-icon purple">💬</div>
-            <div class="apply-text">
-              <strong>채널톡 입장</strong>
-            </div>
-          </div>
-          <span class="arrow">›</span>
-        </a>
-      </div>
-
-      <div class="apply-note">
-        ※ 채널톡 입장 후 1:1 대화하기 → 학번 / 이름 남기기
-      </div>
-      <div class="apply-note" style="margin-top:4px;">
-        ※ 위 두 가지를 완료해야 프로그램 참여가 가능합니다.
-      </div>
-    </section>
-
     <!-- 2. 현재 진행중 프로그램 -->
     <section class="section">
       <div class="section-title">
@@ -837,9 +8,354 @@
         </div>
       </div>
 
+      <style>
+        .program-list{
+          display:flex;
+          flex-direction:column;
+          gap:10px;
+        }
+
+        .program-item{
+          border:1px solid #e6edf5;
+          border-radius:14px;
+          padding:12px;
+          display:grid;
+          grid-template-columns:44px 1fr auto;
+          gap:12px;
+          align-items:center;
+          background:#fff;
+        }
+
+        .p-icon{
+          width:44px;
+          height:44px;
+          border-radius:14px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:20px;
+          flex:0 0 auto;
+        }
+
+        .p-icon.blue{background:var(--blue-soft); color:var(--blue);}
+        .p-icon.green{background:var(--green-soft); color:var(--green);}
+        .p-icon.purple{background:var(--purple-soft); color:var(--purple);}
+        .p-icon.orange{background:var(--orange-soft); color:var(--orange);}
+        .p-icon.pink{background:var(--pink-soft); color:var(--pink);}
+        .p-icon.yellow{background:#fff8e8; color:#e6a930;}
+
+        .program-text strong{
+          display:block;
+          font-size:13px;
+          color:#27415f;
+          margin-bottom:3px;
+          word-break:keep-all;
+        }
+
+        .program-text span{
+          display:block;
+          font-size:11px;
+          color:var(--muted);
+          line-height:1.45;
+          word-break:keep-all;
+        }
+
+        .program-actions{
+          display:flex;
+          flex-direction:column;
+          gap:6px;
+          align-items:flex-end;
+        }
+
+        .mini-btn{
+          display:inline-block;
+          border:none;
+          color:#fff;
+          border-radius:999px;
+          padding:9px 14px;
+          font-size:11px;
+          font-weight:800;
+          min-width:86px;
+          white-space:nowrap;
+          text-decoration:none;
+          text-align:center;
+        }
+
+        .mini-btn.blue{background:var(--blue);}
+        .mini-btn.green{background:var(--green);}
+        .mini-btn.purple{background:var(--purple);}
+        .mini-btn.orange{background:var(--orange);}
+        .mini-btn.pink{background:var(--pink);}
+        .mini-btn.yellow{background:#e6a930;}
+
+        .linked-accordion{
+          border:1px solid #e6edf5;
+          border-radius:16px;
+          background:#fbfdff;
+          overflow:hidden;
+        }
+
+        .linked-trigger{
+          width:100%;
+          border:none;
+          background:#fff;
+          display:grid;
+          grid-template-columns:44px 1fr auto;
+          gap:12px;
+          align-items:center;
+          padding:12px;
+          text-align:left;
+          cursor:pointer;
+        }
+
+        .linked-trigger-text strong{
+          display:block;
+          font-size:13px;
+          color:#27415f;
+          margin-bottom:3px;
+          word-break:keep-all;
+        }
+
+        .linked-trigger-text span{
+          display:block;
+          font-size:11px;
+          color:var(--muted);
+          line-height:1.45;
+          word-break:keep-all;
+        }
+
+        .linked-toggle-label{
+          display:inline-flex;
+          align-items:center;
+          gap:6px;
+          background:var(--blue);
+          color:#fff;
+          border-radius:999px;
+          padding:9px 14px;
+          font-size:11px;
+          font-weight:800;
+          white-space:nowrap;
+        }
+
+        .linked-toggle-arrow{
+          font-size:12px;
+          transition:transform .2s ease;
+        }
+
+        .linked-accordion.open .linked-toggle-arrow{
+          transform:rotate(180deg);
+        }
+
+        .linked-body{
+          display:none;
+          border-top:1px solid #e6edf5;
+          padding:12px;
+          background:#fcfdff;
+        }
+
+        .linked-accordion.open .linked-body{
+          display:block;
+        }
+
+        .linked-notice{
+          display:flex;
+          gap:8px;
+          align-items:flex-start;
+          background:#f1f6fc;
+          border:1px solid #e1ebf6;
+          border-radius:14px;
+          padding:10px 12px;
+          margin-bottom:10px;
+        }
+
+        .linked-notice-icon{
+          width:20px;
+          height:20px;
+          border-radius:50%;
+          background:var(--blue);
+          color:#fff;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:11px;
+          font-weight:800;
+          flex:0 0 auto;
+          margin-top:1px;
+        }
+
+        .linked-notice-text{
+          margin:0;
+          font-size:10.5px;
+          line-height:1.55;
+          color:#5f738a;
+          font-weight:700;
+          word-break:keep-all;
+        }
+
+        .linked-program{
+          border:1px solid #e6edf5;
+          border-radius:14px;
+          background:#fff;
+          padding:12px;
+          margin-bottom:10px;
+        }
+
+        .linked-program:last-child{
+          margin-bottom:0;
+        }
+
+        .linked-program-top{
+          display:flex;
+          align-items:flex-start;
+          gap:10px;
+        }
+
+        .linked-num-badge{
+          width:28px;
+          height:28px;
+          border-radius:999px;
+          background:var(--blue-soft);
+          color:var(--blue);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:12px;
+          font-weight:900;
+          flex:0 0 auto;
+          margin-top:1px;
+        }
+
+        .linked-program-text{
+          flex:1;
+          min-width:0;
+        }
+
+        .company-name{
+          display:block;
+          font-size:13px;
+          font-weight:800;
+          color:#24415f;
+          line-height:1.45;
+          margin-bottom:2px;
+          word-break:keep-all;
+        }
+
+        .program-name{
+          display:block;
+          font-size:12px;
+          font-weight:700;
+          color:#355474;
+          line-height:1.5;
+          margin-bottom:6px;
+          word-break:keep-all;
+        }
+
+        .program-desc{
+          display:block;
+          font-size:11px;
+          line-height:1.55;
+          color:#6f8298;
+          word-break:keep-all;
+        }
+
+        .deadline-line{
+          margin-top:8px;
+          font-size:11px;
+          font-weight:800;
+          color:var(--blue);
+          line-height:1.5;
+        }
+
+        .company-image-wrap{
+          margin-top:10px;
+          padding:8px;
+          border:1px solid #e5edf7;
+          background:#fbfdff;
+          border-radius:12px;
+        }
+
+        .company-image-wrap img{
+          width:100%;
+          display:block;
+          border-radius:8px;
+        }
+
+        .company-image-note{
+          margin-top:8px;
+          font-size:10px;
+          line-height:1.5;
+          color:#8092a5;
+          text-align:left;
+          word-break:keep-all;
+        }
+
+        .linked-btn-row{
+          display:flex;
+          gap:8px;
+          flex-wrap:wrap;
+          margin-top:10px;
+        }
+
+        .linked-btn{
+          display:inline-block;
+          text-decoration:none;
+          border-radius:999px;
+          padding:9px 14px;
+          font-size:11px;
+          font-weight:800;
+          text-align:center;
+          min-width:92px;
+        }
+
+        .linked-btn.view{
+          background:#fff;
+          border:1px solid #9fc5f6;
+          color:var(--blue);
+        }
+
+        .linked-btn.apply{
+          background:var(--blue);
+          border:1px solid var(--blue);
+          color:#fff;
+        }
+
+        .linked-foot-note{
+          margin-top:6px;
+          text-align:center;
+          font-size:10px;
+          color:#8798aa;
+          line-height:1.5;
+        }
+
+        @media (max-width:390px){
+          .program-item,
+          .linked-trigger{
+            grid-template-columns:44px 1fr;
+          }
+
+          .program-actions{
+            grid-column:1 / -1;
+            width:100%;
+          }
+
+          .program-actions .mini-btn{
+            width:100%;
+          }
+
+          .linked-toggle-label{
+            grid-column:1 / -1;
+            justify-content:center;
+            width:100%;
+          }
+
+          .linked-btn{
+            width:100%;
+          }
+        }
+      </style>
+
       <div class="program-list">
 
-        <!-- 연계 프로그램 아코디언 -->
         <div class="linked-accordion" id="linkedAccordion">
           <button type="button" class="linked-trigger" id="linkedTrigger">
             <div class="p-icon blue">👥</div>
@@ -857,40 +373,44 @@
             <div class="linked-notice">
               <div class="linked-notice-icon">i</div>
               <p class="linked-notice-text">
-                연계 추천은 참여 신청서 작성 완료자에 한하여 제공됩니다.
+                일경험 연계 추천서는 참여 신청서 작성 완료자에 한하여 제공됩니다.
               </p>
             </div>
 
+            <!-- 1 -->
             <div class="linked-program">
               <div class="linked-program-top">
                 <div class="linked-num-badge">1</div>
                 <div class="linked-program-text">
-                  <strong>[퍼스트인잡] 2026 미래내일 일경험(인턴형)</strong>
-                  <span>기업 인턴십 연계 실무 경험</span>
-                  <span>※ 아래 업체 리스트를 먼저 확인한 뒤, 희망하는 경우 신청서를 작성해 주세요.</span>
+                  <span class="company-name">[퍼스트인잡]</span>
+                  <span class="program-name">2026 미래내일 일경험(인턴형)</span>
+                  <span class="program-desc">기업 인턴십 연계 실무 경험</span>
+                  <span class="program-desc">※ 아래 업체 리스트를 먼저 확인한 뒤, 희망하는 경우 신청서를 작성해 주세요.</span>
                 </div>
               </div>
 
               <div class="company-image-wrap">
-                <img src="firstinjob-company-list.png" alt="퍼스트인잡 참여기업 리스트">
+                <img src="company-list.png" alt="퍼스트인잡 참여기업 리스트">
                 <div class="company-image-note">
                   ※ 참여기업 모집 일정 및 시작일은 운영 상황에 따라 변동될 수 있으며 사전에 안내됩니다.
                 </div>
               </div>
 
               <div class="linked-btn-row">
-                <a href="https://blog.naver.com/firstinjob/224206444087" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
+                <a href="https://buly.kr/BIWkI2w" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
                 <a href="https://forms.gle/92ao1oCjDt7A4Vf77" class="linked-btn apply" target="_blank" rel="noopener noreferrer">신청하기</a>
               </div>
             </div>
 
+            <!-- 2 -->
             <div class="linked-program">
               <div class="linked-program-top">
                 <div class="linked-num-badge">2</div>
                 <div class="linked-program-text">
-                  <strong>[커리어하이] 2026 미래내일 일경험(프로젝트형)</strong>
-                  <span>고용노동부 청년 일경험 사업 중 "금융권 실무" 유일 프로그램</span>
-                  <div class="deadline-chip">신청기한 04.26(일)</div>
+                  <span class="company-name">[커리어하이]</span>
+                  <span class="program-name">2026 미래내일 일경험(프로젝트형)</span>
+                  <span class="program-desc">고용노동부 청년 일경험 사업 중 "금융권 실무" 유일 프로그램</span>
+                  <div class="deadline-line">⏰ 신청기한: 04.26(일)</div>
                 </div>
               </div>
 
@@ -900,12 +420,14 @@
               </div>
             </div>
 
+            <!-- 3 -->
             <div class="linked-program">
               <div class="linked-program-top">
                 <div class="linked-num-badge">3</div>
                 <div class="linked-program-text">
-                  <strong>[종로여성인력개발센터] 2026년 미래내일 일경험(프로젝트형)</strong>
-                  <span>방송·영상 콘텐츠 프로그램 기획, 개발 일경험 사업</span>
+                  <span class="company-name">[종로여성인력개발센터]</span>
+                  <span class="program-name">2026년 미래내일 일경험(프로젝트형)</span>
+                  <span class="program-desc">방송·영상 콘텐츠 프로그램 기획, 개발 일경험 사업</span>
                 </div>
               </div>
 
@@ -915,12 +437,14 @@
               </div>
             </div>
 
+            <!-- 4 -->
             <div class="linked-program">
               <div class="linked-program-top">
                 <div class="linked-num-badge">4</div>
                 <div class="linked-program-text">
-                  <strong>[(사)한국경영혁신중소기업협회] 2026년 미래내일일경험(프로젝트) 수요조사</strong>
-                  <span>프로젝트형 일경험 프로그램 수요조사</span>
+                  <span class="company-name">[(사)한국경영혁신중소기업협회]</span>
+                  <span class="program-name">2026년 미래내일일경험(프로젝트) 수요조사</span>
+                  <span class="program-desc">프로젝트형 일경험 프로그램 수요조사</span>
                 </div>
               </div>
 
@@ -946,16 +470,16 @@
           </div>
         </div>
 
-       <div class="program-item">
-         <div class="p-icon yellow">💡</div>
-         <div class="program-text">
-           <strong>깔맞춤 지원서 특강</strong>
-           <span>서류 합격률을 높이는 자기소개서 완성 프로그램</span>
-         </div>
-         <div class="program-actions">
-           <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn yellow" target="_blank" rel="noopener noreferrer">참여하기</a>
-         </div>
-       </div>
+        <div class="program-item">
+          <div class="p-icon yellow">💡</div>
+          <div class="program-text">
+            <strong>깔맞춤 지원서 특강</strong>
+            <span>서류 합격률을 높이는 자기소개서 완성 프로그램</span>
+          </div>
+          <div class="program-actions">
+            <a href="https://forms.gle/xhrRdSfFf9hPsGqi8" class="mini-btn yellow" target="_blank" rel="noopener noreferrer">참여하기</a>
+          </div>
+        </div>
 
         <div class="program-item">
           <div class="p-icon purple">✍️</div>
@@ -992,154 +516,3 @@
 
       </div>
     </section>
-
-    <!-- 3. 2026 졸업 프로그램 -->
-    <section class="section">
-      <div class="section-title">
-        <div class="num">3</div>
-        <div>
-          <h2>2026 졸업생 깔맞춤 취업지원 및 프로그램</h2>
-          <p>희망하는 방향에 맞춰 단계별로 참여할 수 있도록 구성했습니다.</p>
-        </div>
-      </div>
-
-      <div class="step-grid">
-        <div class="step-card green">
-          <div class="step">STEP 1 | BUILD</div>
-          <h3>취업역량 강화</h3>
-          <ul>
-            <li>자기분석</li>
-            <li>직무탐색</li>
-            <li>입사서류 작성</li>
-            <li>취업정보 및 트랜드 분석</li>
-          </ul>
-        </div>
-
-        <div class="step-card purple">
-          <div class="step">STEP 2 | UPGRADE</div>
-          <h3>진로·취업 상담</h3>
-          <ul>
-            <li>Career Planning</li>
-            <li>진로설계 직무 특강</li>
-            <li>입사서류 클리닉</li>
-            <li>깔맞춤 면접컨설팅</li>
-          </ul>
-        </div>
-
-        <div class="step-card blue">
-          <div class="step">STEP 3 | CONNECT</div>
-          <h3>현장 연계</h3>
-          <ul>
-            <li>추천·일반 채용 정보</li>
-            <li>정부·지자체 연계(인턴, 일경험)</li>
-            <li>직무 매칭</li>
-            <li>기업·채용 설명회</li>
-          </ul>
-        </div>
-
-        <div class="step-card pink">
-          <div class="step">STEP 4 | FINAL</div>
-          <h3>취업준비 지원</h3>
-          <ul>
-            <li>AI 모의면접</li>
-            <li>인적성 준비(잡플레스)</li>
-            <li>취업 연계</li>
-            <li>사후관리</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="caption">
-        ※ 세부 내용은 운영 상황에 따라 일부 변동될 수 있습니다.
-      </div>
-    </section>
-
-    <!-- 4. 컨설팅 신청 방법 -->
-    <section class="section">
-      <div class="section-title">
-        <div class="num">4</div>
-        <div>
-          <h2>1:1 진로·취업 상담 신청</h2>
-          <p>취업까지 ONE_PASS 전략 설계</p>
-        </div>
-      </div>
-
-      <div class="consult-box">
-        <div class="consult-icon">📋</div>
-        <div class="consult-text">
-          <strong>나에게 맞는 진로·취업 방향을 ONE_PASS 컨설팅으로 찾아보세요.</strong>
-        </div>
-        <div class="consult-actions">
-          <a href="https://forms.gle/U93qBqVVxydpt8NZ7" target="_blank" rel="noopener noreferrer" class="consult-btn purple">상담신청</a>
-        </div>
-      </div>
-
-      <div class="method-box">
-        <p class="method-title">1:1 진로·취업 상담 안내</p>
-
-        <div class="method-steps">
-          <div class="method-step">
-            <span class="bullet">➡️</span>
-            <span>나에게 맞는 직무 찾기 및 진로 설정</span>
-          </div>
-
-          <div class="method-step">
-            <span class="bullet">➡️</span>
-            <span>자기소개서 첨삭 및 완성</span>
-          </div>
-
-          <div class="method-step">
-            <span class="bullet">➡️</span>
-            <span>면접 질문 대비 & 실전 피드백</span>
-          </div>
-
-          <div class="method-step">
-            <span class="bullet">➡️</span>
-            <span>기업/직무 분석 방법 코칭</span>
-          </div>
-
-          <div class="method-step">
-            <span class="bullet">➡️</span>
-            <span>채용정보 제공 및 추천채용 연계</span>
-          </div>
-
-          <div class="method-step">
-            <span class="bullet">➡️</span>
-            <span>취업까지 이어지는 맞춤 전략 설계</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. 오픈채팅방 안내 -->
-    <section class="section">
-      <div class="section-title">
-        <div class="num">5</div>
-        <div>
-          <h2>삼육대학교 대학일자리본부 오픈채팅방</h2>
-          <p>최신 채용정보와 프로그램 안내를 가장 빠르게 받아보세요.</p>
-        </div>
-      </div>
-
-      <div class="openchat-box">
-        <p class="openchat-title">실시간 채용정보+졸업생 특화 프로그램 안내</p>
-        <div class="openchat-code">코드 : syu3247</div>
-
-        <div class="openchat-btn-wrap">
-          <a href="https://open.kakao.com/o/gutBwiJf" target="_blank" rel="noopener noreferrer" class="consult-btn blue">오픈채팅 입장</a>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <script>
-    const linkedAccordion = document.getElementById('linkedAccordion');
-    const linkedTrigger = document.getElementById('linkedTrigger');
-
-    linkedTrigger.addEventListener('click', function () {
-      linkedAccordion.classList.toggle('open');
-    });
-  </script>
-</body>
-</html>
