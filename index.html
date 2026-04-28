@@ -130,7 +130,7 @@
       justify-content:center;
       font-size:12px;
       font-weight:800;
-      flex:0 0 auto;
+     :0 0 auto;
       margin-top:1px;
     }
 
@@ -191,7 +191,7 @@
       align-items:center;
       justify-content:center;
       font-size:17px;
-      flex:0 0 auto;
+     :0 0 auto;
     }
 
     .apply-icon.green{
@@ -225,13 +225,13 @@
       color:#9eb0c2;
       font-size:16px;
       font-weight:700;
-      flex:0 0 auto;
+     :0 0 auto;
     }
 
     /* 2번 프로그램 공통 */
     .program-list{
       display:flex;
-      flex-direction:column;
+     -direction:column;
       gap:10px;
     }
 
@@ -254,7 +254,7 @@
       align-items:center;
       justify-content:center;
       font-size:20px;
-      flex:0 0 auto;
+     :0 0 auto;
     }
 
     .p-icon.blue{background:var(--blue-soft); color:var(--blue);}
@@ -284,7 +284,7 @@
     /* 추천/일반채용 버튼 */
     .job-actions{
       display:flex;
-      flex-direction:column;
+     -direction:column;
       gap:6px;
       align-items:flex-end;
     }
@@ -308,7 +308,7 @@
     /* 일반 프로그램 버튼 */
     .program-actions{
       display:flex;
-      flex-direction:column;
+     -direction:column;
       gap:6px;
       align-items:flex-end;
     }
@@ -427,7 +427,7 @@
       justify-content:center;
       font-size:11px;
       font-weight:800;
-      flex:0 0 auto;
+     :0 0 auto;
       margin-top:1px;
     }
 
@@ -469,12 +469,12 @@
       justify-content:center;
       font-size:12px;
       font-weight:900;
-      flex:0 0 auto;
+     :0 0 auto;
       margin-top:1px;
     }
 
     .linked-program-text{
-      flex:1;
+     :1;
       min-width:0;
     }
 
@@ -541,7 +541,7 @@
     .linked-btn-row{
       display:flex;
       gap:8px;
-      flex-wrap:wrap;
+     -wrap:wrap;
       margin-top:10px;
     }
 
@@ -661,7 +661,7 @@
 
     .consult-actions{
       display:flex;
-      flex-direction:column;
+     -direction:column;
       gap:6px;
       align-items:flex-end;
     }
@@ -697,7 +697,7 @@
 
     .method-steps{
       display:flex;
-      flex-direction:column;
+     -direction:column;
       gap:8px;
     }
 
@@ -715,7 +715,7 @@
     .method-step .bullet{
       color:var(--blue);
       font-weight:900;
-      flex:0 0 auto;
+     :0 0 auto;
     }
 
     /* 5번 */
@@ -882,79 +882,73 @@
           </div>
         </div>
         
-        <!-- 연계 프로그램 -->
-        <div class="linked-accordion" id="linkedAccordion">
-          <button type="button" class="linked-trigger" id="linkedTrigger">
-            <div class="p-icon blue">👥</div>
-            <div class="linked-trigger-text">
-              <strong>연계 프로그램</strong>
-              <span>직무 기반 현장 연계 지원</span>
-            </div>
-            <div class="linked-toggle-label">
-              프로그램 확인하기
-              <span class="linked-toggle-arrow">⌃</span>
-            </div>
-          </button>
+       <div class="program-list">
 
-          <div class="linked-body" id="linkedBody">
-            <div class="linked-notice">
-              <div class="linked-notice-icon">1</div>
-              <p class="linked-notice-text">
-                일경험 연계 추천서는 참여 신청서 작성 완료자에 한하여 제공됩니다.
-              </p>
-            </div>
-            
-            <!-- 1 -->
-            <div class="linked-program">
-              <div class="linked-program-top">
-                <div class="linked-num-badge">1</div>
-                <div class="linked-program-text">
-                  <span class="company-name">[(주)지에스씨넷 인천지점]</span>
-                  <span class="program-name">2026년 미래내일일경험(인턴모집)</span>
-                  <span class="program-desc">[한국마사회] [한국도로공사서비스(주)] : 공공행정</span>
-                </div>
-              </div>
+  <!-- 연계 프로그램 -->
+  <div class="linked-accordion" id="linkedAccordion">
+    <button type="button" class="linked-trigger" id="linkedTrigger">
+      <div class="p-icon blue">👥</div>
+      <div class="linked-trigger-text">
+        <strong>연계 프로그램</strong>
+        <span>직무 기반 현장 연계 지원</span>
+      </div>
+      <div class="linked-toggle-label">
+        프로그램 확인하기
+        <span class="linked-toggle-arrow">⌃</span>
+      </div>
+    </button>
 
-              <div class="linked-btn-row">
-                <a href="https://buly.kr/AwhGgaZ" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
-                <a href="https://forms.gle/fCz3WaVfGpvRxiGe6" class="linked-btn apply" target="_blank" rel="noopener noreferrer">신청하기</a>
-              </div>
-            </div>
+    <div class="linked-body" id="linkedBody">
 
-            <div class="linked-foot-note">
-              ※ 모집 안내 내용 참고를 확인하세요.
-            </div>
+      <div class="linked-notice">
+        <div class="linked-notice-icon">!</div>
+        <p class="linked-notice-text">
+          일경험 연계 추천서는 참여 신청서 작성 완료자에 한하여 제공됩니다.
+        </p>
+      </div>
+
+      <!-- 1 -->
+      <div class="linked-program">
+        <div class="linked-program-top">
+          <div class="linked-num-badge">1</div>
+          <div class="linked-program-text">
+            <span class="company-name">[(주)지에스씨넷 인천지점]</span>
+            <span class="program-name">2026년 미래내일일경험(인턴모집)</span>
+            <span class="program-desc">공공행정 연계 프로그램</span>
           </div>
         </div>
 
+        <div class="linked-btn-row">
+          <a href="https://buly.kr/AwhGgaZ" class="linked-btn view" target="_blank">프로그램 보기</a>
+          <a href="https://forms.gle/fCz3WaVfGpvRxiGe6" class="linked-btn apply" target="_blank">신청하기</a>
+        </div>
+      </div>
 
-        
-        <!-- 2 -->
-            <div class="linked-program">
-              <div class="linked-program-top">
-                <div class="linked-num-badge">1</div>
-                <div class="linked-program-text">
-                  <span class="company-name">[퍼스트인잡]</span>
-                  <span class="program-name">2026 미래내일 일경험(인턴형)</span>
-                  <span class="program-desc">기업 인턴십 연계 실무 경험</span>
-                  <span class="program-desc">※ 아래 업체 리스트를 먼저 확인한 뒤, 희망하는 경우 신청서를 작성해 주세요.</span>
-                </div>
-              </div>
+      <!-- 2 -->
+      <div class="linked-program">
+        <div class="linked-program-top">
+          <div class="linked-num-badge">2</div>
+          <div class="linked-program-text">
+            <span class="company-name">[퍼스트인잡]</span>
+            <span class="program-name">미래내일 일경험(인턴형)</span>
+            <span class="program-desc">기업 인턴십 연계</span>
+          </div>
+        </div>
 
-              <div class="company-image-wrap">
-                <img src="company-list.png" alt="퍼스트인잡 참여기업 리스트">
-                <div class="company-image-note">
-                </div>
-              </div>
+        <div class="company-image-wrap">
+          <img src="company-list.png">
+        </div>
 
-              <div class="linked-btn-row">
-                <a href="https://blog.naver.com/firstinjob/224206444087" class="linked-btn view" target="_blank" rel="noopener noreferrer">프로그램 보기</a>
-                <a href="https://forms.gle/fCz3WaVfGpvRxiGe6" class="linked-btn apply" target="_blank" rel="noopener noreferrer">신청하기</a>
-              </div>
-            </div>
+        <div class="linked-btn-row">
+          <a href="#" class="linked-btn view">프로그램 보기</a>
+          <a href="#" class="linked-btn apply">신청하기</a>
+        </div>
+      </div>
 
-           
+    </div>
+  </div>
 
+</div>
             <!-- 3 -->
             <div class="linked-program">
               <div class="linked-program-top">
